@@ -75,10 +75,7 @@ public interface Graph<L> {
      * weights of those edges.
      * 
      * @param target a label
-     * @return a map where the key set is the set of labels of vertices such
-     *         that this graph includes an edge from that vertex to target, and
-     *         the value for each key is the (nonzero) weight of the edge from
-     *         the key to target
+     * @return 
      */
     public Map<L, Integer> sources(L target);
     
