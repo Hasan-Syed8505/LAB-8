@@ -30,29 +30,7 @@ public class ConcreteEdgesGraph implements Graph<String> {
     
     // TODO checkRep
     
-    @Override public boolean add(String vertex) {
-        throw new RuntimeException("not implemented");
-    }
-    
-    @Override public int set(String source, String target, int weight) {
-        throw new RuntimeException("not implemented");
-    }
-    
-    @Override public boolean remove(String vertex) {
-        throw new RuntimeException("not implemented");
-    }
-    
-    @Override public Set<String> vertices() {
-        throw new RuntimeException("not implemented");
-    }
-    
-    @Override public Map<String, Integer> sources(String target) {
-        throw new RuntimeException("not implemented");
-    }
-    
-    @Override public Map<String, Integer> targets(String source) {
-        throw new RuntimeException("not implemented");
-    }
+
     
     // TODO toString()
     
