@@ -200,10 +200,4 @@ class Edge {
                 target.equals(edge.target);
     }
 
-    // TODO checkRep
-    // Check representation
-    private void checkRep() {
-        // No invariants to check in an immutable class
-    }
-
 }
