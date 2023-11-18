@@ -102,7 +102,8 @@ public abstract class GraphInstanceTest {
         assertEquals(3, graph.set("A", "B", 5));
     }
 
- 
+    
+    
 
     @Test
     public void testGetSources() {
