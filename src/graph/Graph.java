@@ -60,7 +60,6 @@ public interface Graph<L> {
      * 
      * @param vertex label of the vertex to remove
      * @return true if this graph included a vertex with the given label;
-     *         otherwise false (and this graph is not modified)
      */
     public boolean remove(L vertex);
     
