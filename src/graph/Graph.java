@@ -39,6 +39,12 @@ public interface Graph<L> {
     public boolean add(L vertex);
     
     /**
+     * Add, change, or remove a weighted directed edge in this graph.
+     * If weight is nonzero, add an edge or update the weight of that edge;
+     * vertices with the given labels are added to the graph if they do not
+     * already exist.
+     * If weight is zero, remove the edge if it exists (the graph is not
+     * otherwise modified).
      * 
      * @param source label of the source vertex
      * @param target label of the target vertex
