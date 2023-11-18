@@ -131,26 +131,77 @@ public class ConcreteEdgesGraph implements Graph<String> {
  * Immutable.
  * This class is internal to the rep of ConcreteEdgesGraph.
  * 
- * <p>PS2 instructions: the specification and implementation of this class is
+ * <p>
+ * PS2 instructions: the specification and implementation of this class is
  * up to you.
  */
 class Edge {
-    
     // TODO fields
-    
+    private final String source;
+    private final String target;
+    private final int weight;
+
     // Abstraction function:
-    //   TODO
+    // Represents a directed edge from source to target with a given weight.
     // Representation invariant:
-    //   TODO
+    // None (No checks are needed as this class is immutable).
     // Safety from rep exposure:
-    //   TODO
-    
+    // All fields are private and final.
+
     // TODO constructor
-    
+    // Constructor
+    public Edge(String source, String target, int weight) {
+        this.source = source;
+        this.target = target;
+        this.weight = weight;
+    }
+
+    // Observer methods
+        // TODO methods
+    public String getSource() {
+        return source;
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    // TODO toString() method
+    @Override
+    public String toString() {
+        return String.format("(%s -> %s, weight: %d)", source, target, weight);
+    }
+
+    // hashCode() method
+    @Override
+    public int hashCode() {
+        int result = source.hashCode();
+        result = 31 * result + target.hashCode();
+        result = 31 * result + weight;
+        return result;
+    }
+
+    // equals() method
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Edge edge = (Edge) obj;
+        return weight == edge.weight &&
+                source.equals(edge.source) &&
+                target.equals(edge.target);
+    }
+
     // TODO checkRep
-    
-    // TODO methods
-    
-    // TODO toString()
-    
+    // Check representation
+    private void checkRep() {
+        // No invariants to check in an immutable class
+    }
+
 }
