@@ -41,5 +41,22 @@ public class GraphPoetTest {
         String expectedOutput1 = "Test of of the the mugar mugar omni system.";
         assertEquals(expectedOutput1, samplePoet.poem(input1));
     }
+    @Test
+    public void testPoemGeneration2() throws IOException {
+        GraphPoet samplePoet = new GraphPoet(new File("test/poet/sample-corpus.txt"));
+        // Test case 2
+        String input2 = "This is a test.";
+        String expectedOutput2 = "This is is a a test test.";
+        assertEquals(expectedOutput2, samplePoet.poem(input2));
+    }
+    @Test
+    public void testPoemGeneration3() throws IOException {
+        GraphPoet samplePoet = new GraphPoet(new File("test/poet/sample-corpus.txt"));
+        // Test case 3
+        String input3 = "One small step.";
+        String expectedOutput3 = "One small step.";
+        assertEquals(expectedOutput3, samplePoet.poem(input3));
+    }
+    
     
 }
