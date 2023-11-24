@@ -92,7 +92,43 @@ public class GraphPoetTest {
         assertEquals(expectedOutput7, samplePoet.poem(input7));
 
     }
+    @Test
+    public void testPoemGenerationSingleWord() throws IOException {
+        // Test case : Test with a corpus containing only one word
+        GraphPoet singleWordPoet = new GraphPoet(new File("test/poet/single-word-corpus.txt"));
+        String input8 = "Test the system.";
+        String expectedOutput8 = "Test the system.";
+        assertEquals(expectedOutput8, singleWordPoet.poem(input8));
+    }
+    @Test
+    public void testPoemGenerationTwoWord() throws IOException {
+        // Test case : Test with a corpus containing only two words
+        GraphPoet twoWordPoet = new GraphPoet(new File("test/poet/two-word-corpus"));
+        String input9 = "Test the system.";
+        String expectedOutput9 = "Test system\n" +
+                " the system.";
+        assertEquals(expectedOutput9, twoWordPoet.poem(input9).replace("\r",""));
+    }
+    @Test
+    public void testPoemGenerationMixedCase() throws IOException {
+        // Test case 10: Test with a corpus containing a mix of upper and lower case
+        GraphPoet mixedCasePoet = new GraphPoet(new File("test/poet/mixed-case-corpus"));
+        String input10 = "Mixed Case Test.";
+        String expectedOutput10 = "Mixed case Case test\n" +
+                " Test.";
+        assertEquals(expectedOutput10, mixedCasePoet.poem(input10).replace("\r",""));
+    }
 
+    @Test
+    public void testSafetyFromRepExposure() throws IOException {
+        // Test safety from rep exposure, if applicable
+        GraphPoet poet = new GraphPoet(new File("test/poet/sample-corpus.txt"));
+        // Add assertions to check that the representation is not exposed
+        // For example, try to modify the internal state of the object through rep
+        // exposure
+        // and ensure that it is not possible
+        // Make sure to respect encapsulation
+    }
 
     
 }
