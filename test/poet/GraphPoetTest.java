@@ -57,6 +57,42 @@ public class GraphPoetTest {
         String expectedOutput3 = "One small step.";
         assertEquals(expectedOutput3, samplePoet.poem(input3));
     }
-    
+    @Test
+    public void testPoemGeneration4() throws IOException {
+        GraphPoet samplePoet = new GraphPoet(new File("test/poet/sample-corpus.txt"));
+        // Test case 4
+        String input4 = "Graphs are interesting.";
+        String expectedOutput4 = "Graphs are interesting.";
+        assertEquals(expectedOutput4, samplePoet.poem(input4));
+    }
+
+    @Test
+    public void testPoemGeneration5() throws IOException {
+        GraphPoet samplePoet = new GraphPoet(new File("test/poet/sample-corpus.txt"));
+        // Test case 5
+        String input5 = "Empty input test.";
+        String expectedOutput5 = "Empty input test.";
+        assertEquals(expectedOutput5, samplePoet.poem(input5));
+    }
+    @Test
+    public void testPoemGenerationEmpty() throws IOException {
+        GraphPoet samplePoet = new GraphPoet(new File("test/poet/sample-corpus.txt"));
+        // Test case 6
+        String input6 = "";
+        String expectedOutput6 = "";
+        assertEquals(expectedOutput6, samplePoet.poem(input6));
+    }
+    @Test
+    public void testPoemGenerationRepeatedWords() throws IOException {
+        GraphPoet samplePoet = new GraphPoet(new File("test/poet/sample-corpus.txt"));
+        // Additional tests
+        // Test case 7: Test with repeated words in the input
+        String input7 = "Hello hello world world.";
+        String expectedOutput7 = "Hello hello world world.";
+        assertEquals(expectedOutput7, samplePoet.poem(input7));
+
+    }
+
+
     
 }
