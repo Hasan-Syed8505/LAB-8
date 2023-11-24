@@ -115,6 +115,7 @@ public class ConcreteGraph<L> implements graph.Graph<L> {
      */
     @Override
     public Set<L> vertices() {
+        // Vertices Hashset
         return new HashSet<>(outgoingEdges.keySet());
     }
 
