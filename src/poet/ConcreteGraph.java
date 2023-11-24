@@ -86,5 +86,56 @@ public class ConcreteGraph<L> implements graph.Graph<L> {
         return outgoingEdges.getOrDefault(source, new HashMap<>()).getOrDefault(target, 0);
     }
 
-  
+   /**
+     * Removes a vertex from the graph and all its outgoing edges.
+     *
+     * @param vertex the vertex to be removed
+     * @return true if the vertex was successfully removed, false otherwise
+     */
+    @Override
+    public boolean remove(L vertex) {
+        if (outgoingEdges.containsKey(vertex)) {
+            // Remove outgoing edges
+            for (L target : outgoingEdges.get(vertex).keySet()) {
+                outgoingEdges.get(target).remove(vertex);
+            }
+            outgoingEdges.remove(vertex);
+
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Returns a set containing all the vertices in the graph.
+     *
+     * @return a set of vertices in the graph
+     */
+    @Override
+    public Set<L> vertices() {
+        return new HashSet<>(outgoingEdges.keySet());
+    }
+
+    @Override
+    public Map<L, Integer> sources(L target) {
+        return outgoingEdges.getOrDefault(target, new HashMap<>());
+    }
+
+    @Override
+    public Map<L, Integer> targets(L source) {
+        return outgoingEdges.getOrDefault(source, new HashMap<>());
+    }
+
+    // New method to choose max weight bridge
+    public String chooseMaxWeightBridge(List<String> bridgeWords, String word1, String word2) {
+        Map<String, Integer> weights = new HashMap<>();
+        for (String bridgeWord : bridgeWords) {
+            weights.put(bridgeWord, getWeight(word1, bridgeWord) + getWeight(bridgeWord, word2));
+        }
+
+        return weights.entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey)
+                .orElse("");
+    }
 }
