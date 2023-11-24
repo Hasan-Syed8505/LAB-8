@@ -24,6 +24,7 @@ public class ConcreteGraph<L> implements graph.Graph<L> {
      * @return an empty graph of type ConcreteGraph
      */
     public static <L> ConcreteGraph<L> empty() {
+        // CConcrete Graph returner 
         return new ConcreteGraph<>();
     }
 
